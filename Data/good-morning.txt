@@ -1,0 +1,35 @@
+// import React from "react";
+// import ReactDom from "react-dom";
+// const currDate=new Date();
+
+// ReactDom.render(<>
+//         <h1>My name is Nikhil</h1>
+//         <h2>I am here with new project</h2>
+//         <p>{`Today Date is ${currDate.toLocaleDateString()}`}</p>
+//         <p>Current Time Is {currDate.toLocaleTimeString()}</p>
+
+//       </>
+//     ,
+//   document.getElementById('root'));
+
+app.jsx
+
+
+// import React from "react";
+// import ReactDom from "react-dom";
+// import "./index.css";
+// const cssStyle={};
+// let greeting="";
+// const currTime=new Date();
+// if (currTime<12) {
+//     greeting="Good Morining"
+//     cssStyle.color="green"
+// }else if(currTime>12 || currTime<15){
+//   greeting="Good Afternoon"
+//   cssStyle.color="yellow"
+//   cssStyle.fontFamily="'Open Sans', sans-serif";
+// } 
+// else {
+//   greeting="Good Evening"
+//   cssStyle.color="red"
+// }

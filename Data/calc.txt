@@ -1,0 +1,14 @@
+
+// import React from "react";
+// import ReactDom from "react-dom"
+// import sumer,{sub,mul,divi} from "./App.jsx";
+
+// ReactDom.render(
+//   <>
+//     <div>{sumer(4,5)}</div>
+//     <div>{sub(3,2)}</div>
+//     <div>{mul(3,4)}</div>
+//     <div>{divi(4,3)}</div>
+//   </>,
+//   document.getElementById('root')
+// )

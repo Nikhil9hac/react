@@ -1,70 +1,147 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+netflix project
+// import React from "react";
+// import ReactDom from "react-dom";
 
-In the project directory, you can run:
+// import React from "react";
+// import ReactDom from "react-dom";
+// import App,{Navbar} from "./App.jsx";
+// import mData from "./mData.js"
+// import "./index.css";
 
-### `npm start`
+// ReactDom.render(<Navbar/>,document.getElementById('root'))
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+// ReactDom.render(
+//     <>
+//     {mData.map((val)=>{
+//       return(
+//           <App key={val.key} imgsrc={val.imgsrc} title={val.title} link={val.link} original={val.original} alt="pic"/>
+//       )
+//     })}
+//     </>
+//     ,document.getElementById('content")
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+slot gaming
 
-### `npm test`
+import React from "react";
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+export const Navbar=()=>{
+    return(
+      <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="#">Navbar</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Link</a>
+        </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a className="dropdown-item" href="#">Action</a></li>
+            <li><a className="dropdown-item" href="#">Another action</a></li>
+            <li><a className="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
 
-### `npm run build`
+    </div>
+  </div>
+</nav>
+      </>
+    )
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export const Slot=(props)=>{
+  return(
+    <>
+    <div className="slot-container">
+          <div className="slot-area">
+            <div className="emoji-area">
+              <span>{props.x}</span>
+              <span>{props.y}</span>
+              <span>{props.z}</span>
+            </div>
+            <hr/>
+            <div className="result-area text-center">
+                {(props.x==props.y&&props.y==props.z ? "This is Matching":"This is Not Matching")}
+            </div>
+          </div>
+    </div>
+    </>
+  )
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+import React from "react";
+import ReactDom from "react-dom";
+import {Navbar,Slot}  from "./App.jsx";
+import "./index.css";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ReactDom.render(<>
+  <Navbar />
+</>, document.getElementById('root'))
 
-### `npm run eject`
+ReactDom.render(<>
+<h3>Slot Machine Game</h3>
+  <Slot x="😄" y="😄" z="😄"/>
+  <Slot x="😄" y="🎅" z="😄"/>
+  <Slot x="🎅" y="🎅" z="🎅"/>
+  <Slot x="🎅" y="🎅" z="😄"/>
+</>, document.getElementById('content'))
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+increament basic
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+import React,{useState} from "react";
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+export const App = (props) => {
+  const [count,setCount]=useState(0)
+  const Increase=()=>{
+    setCount(count+1 )
+  }
+  return (
+    <>
+      <div className="container">
+        <div className="top text-center">{count}</div>
+        <div className="bottom text-center">
+          <button onClick={Increase}>Click</button>
+        </div>
+      </div>
+    </>
+  )
+}
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+get time 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+import React, { useState } from 'react'
 
-### Code Splitting
+export const App = () => {
+  const currTime=new Date();
+  const [time,setNewTime]=useState(currTime.toLocaleTimeString())
+  const NewTime=()=>{
+    let currTime2=new Date()
+    setNewTime(currTime2.toLocaleTimeString());
+  }
+  return (
+    <>
+    <div className="time-container text-center">
+          <div className="top">{time}</div>
+          <div className="bottom">
+            <button onClick={NewTime}>Get Time</button>
+          </div>
+    </div>
+    </>
+  )
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
