@@ -1,0 +1,43 @@
+app
+
+import React from 'react'
+import { useState } from 'react'
+import {Note} from "./Note.jsx"
+import {Create} from "./Create.jsx"
+
+export const App = () => {
+  
+  let [notesArr,setNotesArr]=useState([])
+  const InsertElm=(note)=>{
+    console.log(note);
+    setNotesArr((preData)=>{
+      return [...preData,note]
+    })
+  }
+  return (
+    <>
+      <Create passNote={InsertElm}/>
+      <div className="notes-area">
+      {notesArr.map((val,index)=>{
+        return(
+          <Note title={val.title} userNote={val.content} id={index}/>
+        )
+      })}
+      </div>
+    </>
+  )
+}
+
+
+export const Header=()=>{
+  return(
+    <nav>
+      <div className="logo">
+        Notes keep
+      </div>
+    </nav>
+  )
+}
+
+
+go to create and note

@@ -1,0 +1,52 @@
+import React, { useState } from 'react'
+
+export const App = () => {
+    const InputField=(e)=>{
+        e.preventDefault();
+        alert('form submitted')
+    }
+
+    const [FullDetails,setFullDetails]=useState({
+        fname:"",
+        lname:""
+    })
+
+    const InputCom=(event)=>{
+        setFullDetails((preValue)=>{
+            const name=event.target.name;
+            const value=event.target.value;
+            if (name==="fname") {
+            return{
+                fname:value,
+                lname:preValue.lname
+            }
+            }
+            else{
+                return{
+                    fname:preValue.fname,
+                    lname:value
+                }
+            }
+        })
+    }
+    return (
+        <>
+         <div className="forms text-center">
+            <div className="top text-center">
+                Hello
+            </div>
+            <form onSubmit={InputField}>
+            <div className="forms-material">
+                <div>
+                <input type="text" name="fname" placeholder="Enter Your Name"onChange={InputCom} value={FullDetails.fname} />
+                </div>
+                <div>
+                <input type="text" style={{marginTop:"20px"}} name="lname" placeholder="Enter Your Password"onChange={InputCom} value={FullDetails.lname} />
+                </div>
+            </div>
+                <button type="submit"></button>
+            </form>
+        </div>
+        </>
+    )
+}

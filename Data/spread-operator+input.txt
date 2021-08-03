@@ -1,0 +1,50 @@
+import React, { useState } from 'react'
+// import { NewInput } from './NewInput'
+
+export const App = (props) => {
+    const [FullDetails, setFullDetails] = useState({
+        fname: "",
+        lname: "",
+        ename: "",
+        pnum: ""
+    })
+    const InputEvent = (event) => {
+        const name=event.target.name;
+        const value=event.target.value;
+        setFullDetails((preValue) => {
+          return{
+              ...preValue,
+              [name]:value
+          }
+        })
+    }
+    return (
+        <>
+           <div className="forms">
+               <div className="top">
+
+               </div>
+               <div className="forms-material">
+               <form>
+           <div>
+                <input type="text" placeholder="Enter Your Name" name="fname" onChange={InputEvent} />
+            </div>
+            <div>
+                <input type="text" placeholder="Enter Your last Name" name="lname" onChange={InputEvent} />
+            </div>
+            <div>
+                <input type="email" placeholder="Enter Your Gmail" name="ename" onChange={InputEvent} />
+            </div>
+            <div>
+                <input type="text" placeholder="Enter Your Phone Number" name="pnum" onChange={InputEvent} />
+            </div>
+            <div>
+                <input type="text" placeholder="Enter Your details" name="det" onChange={InputEvent} />
+            </div>
+           </form>
+               </div>
+           </div>
+
+        </>
+    )
+}

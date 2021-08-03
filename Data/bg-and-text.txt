@@ -1,0 +1,29 @@
+import React,{useState} from "react";
+
+export const App = () => {
+  let initialBg='#9b59b6';
+  let initialName="Click Me"
+  let [bg,setBg]=useState(initialBg);
+  let [name,setName]=useState(initialName)
+  const setAll=()=>{
+    initialBg='#34495e';
+    setBg(initialBg);
+    initialName="ouch 🎅"
+    setName(initialName)
+  }  
+  const setAll2=()=>{
+    initialBg='#9b59b6';
+    setBg(initialBg);
+    initialName='ooh 😠'
+    setName(initialName)
+  }
+
+  return (
+    <>
+    <div className="container-fluid" style={{backgroundColor:bg}}>
+    <button onClick={setAll} onDoubleClick={setAll2}>{name}</button>
+    </div>
+    </>
+  )
+}
+

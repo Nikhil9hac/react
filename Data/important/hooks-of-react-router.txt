@@ -1,0 +1,42 @@
+import React from 'react';
+import {App} from "./App.jsx";
+import { useParams,useLocation,useHistory } from 'react-router';
+
+export const User = () => {
+    const {fname}=useParams();
+    const location =useLocation();
+    const history=useHistory();
+    console.log(location);
+    console.log(history);
+    return (
+        <div>
+            <App/>
+            <h1>Hello I Am {fname} Page</h1>
+            {location.pathname=='/user/nikhil'?<button className="btn btn-success m-3" onClick={()=>{history.goBack()}} onDoubleClick={()=>{
+                history.goForward()
+            }}>click me</button>:<h2 className="text-capitalize fs-3 m-2">welcome to react website</h2>}
+        </div>
+    )
+}
+
+import React from "react";
+import { Route , Switch } from "react-router";
+import {App} from "./App.jsx"
+import {Contact} from "./Contact.jsx"
+import {Service} from "./Service.jsx"
+import {User} from "./User.jsx"
+
+const ReactRoute=()=>{
+    return(
+        <Switch>
+        <Route exact path="/" component={App}/>
+        <Route exact path="/contact" component={Contact}/>
+        <Route exact path="/service" component={Service}/>
+        <Route exact path="/user" component={User}/>
+        <Route exact path="/user/:fname" component={User}/>
+        <Route component={Error}/>
+    </Switch>
+    )
+}
+
+export default ReactRoute;

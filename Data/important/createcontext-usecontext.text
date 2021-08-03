@@ -1,0 +1,47 @@
+
+// createContext
+// import React, { createContext} from 'react'
+// import {Coma} from "./Coma"
+
+// const Fname=createContext();
+// const Lname=createContext();
+// export const App = () => {
+//   return (
+//     <>
+//     <Fname.Provider value={'Nikhil'}>
+//         <Lname.Provider value={'kumar'}>
+//           <Coma/>
+//         </Lname.Provider>
+//     </Fname.Provider>
+//     </>
+//   )
+// }
+
+// export {Fname,Lname};
+
+
+
+//                               useContext
+
+import React from 'react';
+import { createContext } from 'react';
+import {Coma} from "./Coma"
+
+const fname=createContext()
+const lname=createContext()
+
+export const App = () => {
+  return (
+    <>
+      <fname.Provider value={"nikhil"}>
+        <lname.Provider value={'kumar'}>
+          <Coma/>
+        </lname.Provider>
+      </fname.Provider>
+    </>
+  )
+}
+
+export {fname,lname}
+
+go to coma comb comc

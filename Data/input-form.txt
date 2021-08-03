@@ -1,0 +1,22 @@
+import React, { useState } from 'react'
+
+export const App = () => {
+    let [name,setname]=useState('')
+    const InputTarget=(event)=>{
+        setname(event.target.value)
+    }
+    return (
+        <>
+        {/* single source of truth */}
+        <div className="forms text-center">
+            <div className="top text-center">
+                Hello {name}
+            </div>
+            <div className="forms-material">
+                <input type="text" placeholder="Enter Your Name" onChange={InputTarget} value={name}/>
+            </div>
+                <button>Submit</button>
+        </div>
+        </>
+    )
+}

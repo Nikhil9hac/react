@@ -1,0 +1,19 @@
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+
+export const App = () => {
+    const [data,setData]=useState(0);
+    const changeVal=(()=>{
+        setData(data+1)
+    })
+    useEffect(()=>{
+        document.title=`You Clicked ${data} Times`;
+    },[data])
+    return (
+       <>
+       <div className="text-center">
+       <button onClick={changeVal}>Click me {data}</button>
+       </div>
+       </>
+    )
+}

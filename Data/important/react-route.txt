@@ -1,0 +1,57 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import {App} from "./App.jsx";
+import { ReactRoute } from "./Route-React.jsx";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css"
+
+ReactDOM.render(
+    <>
+    <BrowserRouter>
+    <ReactRoute/>
+    </BrowserRouter>
+    
+    </>
+    ,document.getElementById("root")
+)
+
+app.jsx
+
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+export const App = () => {
+    return (
+        <>
+            <NavLink to="/" className="btn btn-primary m-2">Home</NavLink>
+            <NavLink to="/about" className="btn btn-primary m-2">About</NavLink>
+            <NavLink to="/contact" className="btn btn-primary m-2">contact</NavLink>
+        </>
+    )
+}
+
+
+recat-router
+
+import React from 'react'
+import { Route,Switch } from 'react-router'
+import { App } from './App.jsx' 
+import { About } from './About.jsx';
+import { Contact } from './Contact.jsx';
+import { Error } from './Error.jsx';
+
+export const ReactRoute = () => {
+    return (
+        <>
+        <Switch>
+            <Route exact path="/" component={App}/>
+            <Route path="/about" component={About}/>
+            <Route path="/contact" component={Contact}/>
+            <Route component={Error}/>
+        </Switch>
+        </>
+    )
+}
+
+
+go to about ,contact,Error

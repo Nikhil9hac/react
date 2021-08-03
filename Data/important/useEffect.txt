@@ -1,0 +1,21 @@
+import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react'
+
+export const App = () => {
+  const[num,setNum]=useState(0);
+  const[nums,setNums]=useState(0);
+  useEffect(()=>{
+    alert('I am clicked')
+  },[num])
+  return (
+    <>
+    <div className="text-center">
+    <button className="mt-4" onClick={()=>{setNum(num+1)}}>Click Me {num}</button>
+    </div>
+    <div className="text-center">
+    <button className="mt-4" onClick={()=>{setNums(nums+1)}}>Click Me {nums}</button>
+    </div>
+    </>
+  )
+}

@@ -1,0 +1,47 @@
+import React from 'react';
+import AddIcon from '@material-ui/icons/Add';
+import { useState } from 'react';
+import { Header } from './Header';
+
+export const App = () => {
+    const [items,setItem]=useState("");
+    const [arrItem,setArrItem]=useState([]);
+    const newItem=(event)=>{
+        const value=event.target.value;
+        setItem(value)
+    }
+    const clicked=()=>{
+        setArrItem((preValue)=>{
+            return[...preValue,items]
+        })
+        setItem('')
+    }
+    const deleteItem=(id)=>{
+        const result=arrItem.filter((val,index)=>{
+            return index!==id
+        })
+        setArrItem(result)
+    }
+    return (
+        <>
+        <div className="container1">
+           <div className="container2">
+           <div className="header text-center">
+                <p>To-do List</p>
+            </div>
+            <div className="inputArea">
+                <input type="text" name="wname" placeholder="Item" onChange={newItem} value={items} />
+                <AddIcon onClick={clicked} />
+            </div>
+            <div className="to-container">
+                <ol>
+                    {arrItem.map((val,index)=> {
+                        return <Header key={index} text={val} id={index} onSelect={deleteItem}/>
+                    })}
+                </ol>
+            </div>
+           </div>
+        </div>
+        </>
+    )
+}

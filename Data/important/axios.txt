@@ -1,0 +1,43 @@
+import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { Pokemon } from './Pokemon';
+
+export const App = () => {
+    const [poke,setPok]=useState();
+    const [height,setHeight]=useState();
+    const [weight,setWeight]=useState();
+    const [name,setName]=useState();
+    const [id,setId]=useState();
+    const [num,setNum]=useState(25);
+    useEffect(()=>{
+        const getData= async()=>{
+            const res=await axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`);
+            setPok(res);
+            setName(res.data.name)
+            setHeight(res.data.height)
+            setWeight(res.data.weight)
+            setId(res.data.id)
+        }
+        getData();
+    },)
+
+    const inputChange=(event)=>{
+        setNum(event.target.value)
+    }
+    return (
+        <>
+        <div>
+                <p className="text-center mt-4 fs-4">Enter Any Number</p>
+        <div className="input-group flex-nowrap">
+    <input type="text" className="form-control" placeholder="Username"  aria-label="Username" aria-describedby="addon-wrapping" onChange={inputChange} value={num}/>
+    </div>
+        </div>
+        <Pokemon name={name} height={height} weight={weight} id={id} />
+        </>
+    )
+}
+
+
+go to pokemon
